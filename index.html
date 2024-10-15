@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+      html {
+        color: #24305f;
+      }
+      body {
+        background-color: #fff;
+      }
+      .accordian {
+        width: 75%;
+        margin: 100px auto;
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+      }
+      .item {
+        box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 30px;
+        padding: 30px;
+        cursor: pointer;
+        align-items: center;
+        border-radius: 10px;
+      }
+      h2 {
+        font-size: 25px;
+        font-weight: 600;
+      }
+      .number {
+        font-size: 30px;
+        font-weight: bold;
+      }
+      .icon {
+        width: 24px;
+        height: 24px;
+        color: #1864ab;
+        font-size: 20px;
+      }
+      .hidden-box {
+        grid-column: 2/3;
+        display: none;
+      }
+      .hidden-box p {
+        line-height: 1.6;
+        margin-bottom: 24px;
+        font-size: 20px;
+        left: 0.5px;
+
+        word-spacing: 1px;
+      }
+      .hidden-box ul {
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+      }
+      .hidden-box ul li {
+        font-size: 20px;
+        letter-spacing: 0.5px;
+        word-spacing: 3px;
+        line-height: 1.5;
+        margin-left: 16px;
+      }
+      .active{
+        position: relative;
+      }
+      .active::after{
+        content: "";
+        position: absolute;
+        width: 0;
+        border: 2px solid #1864ab;
+        top: 0;
+        left: 0;
+        animation: border 1s linear forwards;
+      }
+      @keyframes border{
+        0%{
+          width: 0;
+        }
+        100%{
+          width: 100%;
+        }
+      }
+      .active .hidden-box {
+        display: block;
+      }
+   .icon-close{
+    display: none;
+   }
+    </style>
+  </head>
+  <body>
+    <div class="accordian">
+      <div class="item">
+        <p class="number">01</p>
+        <h2>my name is shoiab rahi</h2>
+        <div class="icon-open">
+          <ion-icon class="icon" name="add-outline"></ion-icon>
+        </div>
+        <div class="icon-close">
+          <ion-icon class="icon" name="close-outline"></ion-icon>
+        </div>
+
+        <div class="hidden-box">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+            necessitatibus obcaecati fugiat reprehenderit vel placeat aliquam,
+            odit unde debitis omnis ea, officia, dolorem atque. Accusantium
+            suscipit sint nisi reprehenderit architecto.
+          </p>
+          <ul>
+            <li>
+              reprehenderit vel placeat aliquam, odit unde debitis omnis ea,
+              officia,
+            </li>
+            <li>
+              consectetur adipisicing elit. Corporis necessitatibus obcaecati
+              fugiat
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="item">
+        <p class="number">01</p>
+        <h2>my name is shoiab rahi</h2>
+        <div class="icon-open">
+          <ion-icon class="icon" name="add-outline"></ion-icon>
+        </div>
+        <div class="icon-close">
+                    <ion-icon class="icon" name="close-outline"></ion-icon>
+                </div>
+
+        <div class="hidden-box">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+            necessitatibus obcaecati fugiat reprehenderit vel placeat aliquam,
+            odit unde debitis omnis ea, officia, dolorem atque. Accusantium
+            suscipit sint nisi reprehenderit architecto.
+          </p>
+          <ul>
+            <li>
+              reprehenderit vel placeat aliquam, odit unde debitis omnis ea,
+              officia,
+            </li>
+            <li>
+              consectetur adipisicing elit. Corporis necessitatibus obcaecati
+              fugiat
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="item">
+        <p class="number">01</p>
+        <h2>my name is shoiab rahi</h2>
+        <div class="icon-open">
+          <ion-icon class="icon" name="add-outline"></ion-icon>
+        </div>
+        <div class="icon-close">
+                    <ion-icon class="icon" name="close-outline"></ion-icon>
+                </div>
+
+        <div class="hidden-box">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
+            necessitatibus obcaecati fugiat reprehenderit vel placeat aliquam,
+            odit unde debitis omnis ea, officia, dolorem atque. Accusantium
+            suscipit sint nisi reprehenderit architecto.
+          </p>
+          <ul>
+            <li>
+              reprehenderit vel placeat aliquam, odit unde debitis omnis ea,
+              officia,
+            </li>
+            <li>
+              consectetur adipisicing elit. Corporis necessitatibus obcaecati
+              fugiat
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js"
+    ></script>
+    <script>
+      const itemDiv = document.getElementsByClassName("item")
+      let openIcon = document.getElementsByClassName("icon-open");
+      let closeIcon = document.getElementsByClassName("icon-close");
+
+      for(let i = 0;i<itemDiv.length;i++){
+        itemDiv[i].addEventListener("click",() => {
+
+closeIcon[i].style.display = "none"
+
+
+          let result = itemDiv[i].classList.toggle("active");
+          if(result){
+            openIcon[i].style.display = "none";
+            closeIcon[i].style.display = "block"
+          }else{
+              openIcon[i].style.display = "block";
+            closeIcon[i].style.display = "none"
+          }
+        })
+      }
+    
+     
+    </script>
+  </body>
+</html>
